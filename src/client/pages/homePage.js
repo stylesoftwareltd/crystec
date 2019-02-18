@@ -125,12 +125,21 @@ class HomePage extends Component {
                           <div className="row spacer-bot">
                               <div className="col-lg-4  col-sm-6 col-12">
                                   <p className="text-align-j intro-1-txt">
-                                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam et nesciunt blanditiis inventore quia adipisci beatae magnam molestiae dolorem rerum tempora aperiam, modi doloremque harum atque molestias perspiciatis, possimus veniam enim. Dignissimos <br/> labore ducimus reiciendis, numquam possimus deserunt nesciunt est accusamus eius architecto expedita, dolore debitis totam, aspernatur earum veritatis quas sint! Expedita facere possimus eveniet aspernatur illum ullam laudantium consectetur. Laborum veritatis eligendi aliquid officia perspiciatis repellendus minus totam minima. Architecto dolore in, doloremque <br/> ab dignissimos nisi deleniti! Nisi vel et earum recusandae veritatis dolore consequatur a perspiciatis quod! Hic at esse soluta dicta quae error, illo laboriosam ut?
+                                      From the moment you step into a Crystec Spa, you don’t just experience the warmth of the crystal-clear water, you also get that warm feeling of satisfaction, as you settle back in to the comfortable seating and enjoy its sleek looks that have evolved from the dedication to design & technology, championed by a team of expert enthusiasts. 
+The Crystec team of course are highly skilled at ensuring the Spa has such beautiful curves, along with expert design on each seat or lounger, positioning just the right number, type and size of massage jets to easily and thoroughly work away at removing those chills, aches and pains, from a long hard day.
+
                                   </p>
                               </div>
                               <div className="col-lg-4  col-sm-6 col-12">
                                   <p className="text-align-j intro-1-txt">
-                                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam et nesciunt blanditiis inventore quia adipisci beatae magnam molestiae dolorem rerum tempora aperiam, modi doloremque harum atque molestias perspiciatis, possimus veniam enim. Dignissimos labore ducimus reiciendis, numquam possimus deserunt <br/> nesciunt est accusamus eius architecto expedita, dolore debitis totam, aspernatur earum veritatis quas sint! Expedita facere possimus eveniet aspernatur illum ullam laudantium consectetur. Laborum veritatis eligendi aliquid officia perspiciatis repellendus minus totam minima. Architecto <br/> dolore in, doloremque ab dignissimos nisi deleniti! Nisi vel et earum recusandae veritatis dolore consequatur a perspiciatis quod! Hic at esse soluta dicta quae error, illo laboriosam ut?
+                                      Crystec Spas know the right atmosphere and moods need to be created, and along with the ultimate lighting, have added the right sound system for strong beats for your parties, or softened relaxed sounds for those tranquil moments.
+
+A Crystec Spa appreciates your investment, so it is also good to know the high quality of manufacture, using only big brand components, to give peace of mind for the Spa long into the future.
+
+Finally, a Crystec Spa is built to cost you less, with an insulation process carefully thought out and tested to ensure it can expect to keep your running cost to a minimum.
+
+So, with all the above in mind, all that’s left to do, is choose the perfect Crystec Spa for you and your family.
+
                                   </p>
                               </div>
                               <div className=" col-lg-4   col-md-12 col-12 intro-2">
