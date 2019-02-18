@@ -1,11 +1,15 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
 @import './config';
 
 // Base
-@import './base/normalize';
+// @import './base/normalize';
 @import './base/css_grid';
 @import './base/banner_scroller';
-@import './base/forms';
-@import './base/default';
+// @import './base/forms';
+// @import './base/default';
+@import './base/colors';
+@import './base/media';
 
 // Components
 @import './components/header';
@@ -16,3 +20,5 @@
 @import './pages/posts';
 @import './pages/servicesPage';
 @import './pages/aboutPage';
+@import './pages/productsPage';
+@import './pages/productPage';

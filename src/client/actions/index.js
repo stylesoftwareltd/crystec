@@ -67,31 +67,10 @@ export const fetchProduct = (productID) => async (dispatch, getState, api) => {
     
 };
 
-// export const fetchProduct = (productID) => async (dispatch, getState, api) => {
-
-//     const _query = {
-//         product_id: productID
-//     };
-
-
-//     await api.post('https://stg.uk.hottubinstyle.co.uk/api/products/get_product_details', _query).then(response => {
-//         dispatch({
-//             type: 'FETCH_PRODUCT',
-//             payload: response.data
-//         })
-//     }).catch((err) => {
-//         console.log('error', err);
-//     })
-
-    
-// };
-
 
 export const fetchProducts = () => async (dispatch, getState, api) => {
     
     await api.get("https://stg.uk.hottubinstyle.co.uk/api/products").then(response => {
-        console.log(response);
-        console.log('fetch post action dispatched');
         dispatch({
             type: 'FETCH_PRODUCTS',
             payload: response.data

@@ -13,6 +13,8 @@ import ProductsPage from './pages/productsPage';
 import ProductPage from './pages/productPage';
 import NotFoundPage from './pages/notFound404Page';
 import CustomLayout from './layouts/custom_layout';
+import HomePageLayout from './layouts/home_page_layout';
+import ProductAdmin from './admin/product/productAdmin';
 
 export default [
     {
@@ -25,6 +27,15 @@ export default [
             },
             {
                 ...Posts
+            }
+        ]
+    },
+    {
+        path: '/adminProduct',
+        ...App,
+        routes: [
+            {
+                ...ProductAdmin
             }
         ]
     },
@@ -98,7 +109,7 @@ export default [
     {
         path: '/',
         exact: true,
-        ...App,
+        ...HomePageLayout,
         routes: [
             {
                 ...HomePage
