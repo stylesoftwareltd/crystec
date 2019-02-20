@@ -81,6 +81,22 @@ export const fetchProducts = () => async (dispatch, getState, api) => {
     
 };
 
+export const fetchFeaturedProducts = () => async (dispatch, getState, api) => {
+    
+    await api.get("https://stg.uk.hottubinstyle.co.uk/api/products/get_featured_products").then(response => {
+        dispatch({
+            type: 'FETCH_FEATURED_PRODUCTS',
+            payload: response.data
+        })
+    }).catch((err) => {
+        console.log('error', err);
+    })
+    
+};
+
+
+
+
 export const clearPostData = () => (dispatch) => {
     dispatch({
         type: 'CLEAR_POST_DATA'

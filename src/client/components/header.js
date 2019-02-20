@@ -3,6 +3,7 @@ import {Link, NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import webConfig from './../../../webConfig';
 import classNames from 'classnames';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 class Header extends Component {
 
@@ -59,20 +60,20 @@ class Header extends Component {
                                     <a className="nav-link" href="/">Home </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">About</a>
+                                    <AnchorLink className="nav-link" href="#about_us">About</AnchorLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/products">Products</a>
+                                    <AnchorLink className="nav-link" href="#our_models">Products</AnchorLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link disabled" href="#">What We Offer</a>
+                                    <AnchorLink className="nav-link" href="#what_we_offer">What We Offer</AnchorLink>
                                 </li>
-                                <li className="nav-item">
+                                {/*<li className="nav-item">
                                     <a className="nav-link disabled" href="#">Video Gallery</a>
-                                </li>
-                                <li className="nav-item">
+                                </li>*/}
+                                {/*<li className="nav-item">
                                     <a className="nav-link disabled" href="#">More</a>
-                                </li>
+                                </li>*/}
                             </ul>
                         </div>
                         <div className=" col-lg-2 col-md-6 col-sm-6 col-6 logo-wrap-2 offset-3m">

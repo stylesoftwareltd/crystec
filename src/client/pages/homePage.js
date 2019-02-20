@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import {fetchProducts} from './../actions';
+import webConfig from './../../../webConfig';
+import ReactHtmlParser from 'react-html-parser';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet';
 import {Link, NavLink} from 'react-router-dom';
-import { Container, Col, Row, Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
+import { Container, Col, Row, Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap'; 
 
 
 const items = [
@@ -26,16 +30,17 @@ const items = [
 
 class HomePage extends Component {
 
+    componentDidMount(){
+        this.props.fetchProducts();
+    }
+    componentWillUnmount(){
+        this.props.clearPostData();
+    }
+
     head(){
       return (
         <Helmet bodyAttributes={{class: "homePage"}}>
           <title>{`Home Page - crystec-spas`}</title>
-          {/*<link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-            crossorigin="anonymous"
-          />*/}
         </Helmet>
       );
     }
@@ -73,6 +78,77 @@ class HomePage extends Component {
     goToIndex(newIndex) {
       if (this.animating) return;
       this.setState({ activeIndex: newIndex });
+    }
+
+    renderProducts(){
+        if(this.props.pageData != false){
+        return this.props.pageData.map((post, index) => {
+
+            const toShow = (post.info.description.length > 0 ) ? post.info.description.substring(0,200)+"..." : '';
+
+            return (
+                    <div key={index} className="product">
+                        <div className="wrap">
+
+                            <div className="wrp-title">
+                                <div className="product-cat column_1_12">
+                                    <h2>{post.group_name}</h2>
+                                </div>
+
+                                <div className="product-series column_10_12">
+                                   <h2>{post.name}</h2>
+                                </div>
+                            </div>
+
+                            <div className="product-title"><a href= {`${webConfig.siteURL}/products/${post.info.uri_slug}`} > {post.info.name} </a></div>
+
+                            <div className="products-wrapper">
+
+                                    <div className="img column_4_12">
+                                        <img  src={`https://stg.uk.hottubinstyle.co.uk/media/images/product/${post.info.file}`}  className="products-image"/>
+                                    </div>
+                                    
+                                    <div className="products-details column_8_12">
+
+                                        <div className="products-description">
+                                            { ReactHtmlParser(toShow) }
+                                        </div>
+                                        
+                                        <div className="products-specs">
+                                                <div className="spec-head">
+                                                        <h5>Specification</h5>
+                                                </div>
+
+                                                <div className="products-specification">
+                                                  { post.product_specs.map((data, index) => {
+                                                        return (
+                                                          <div className="description-row">
+                                                              <div className="spec-title column_5_12">
+                                                                  <p>{data.attr_value_name}</p>
+                                                              </div>
+                                                              <div className="spec-desc column_6_12">
+                                                                  <p>{data.product_attr_value}</p>
+                                                              </div>    
+                                                          </div>
+                                                        );
+                                                    })
+                                                  }
+                                                </div>
+                                        </div>
+
+                                        <div className="products-more">
+                                            <div>
+                                                <a href={`${webConfig.siteURL}/products/${post.info.uri_slug}`}>See More Details</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+            );
+        })
+        }
     }
     
     render() {
@@ -114,7 +190,7 @@ class HomePage extends Component {
 
 
           {/*<!-- 2. Main Intro Start -->*/}
-          <section>
+          <section id="about_us">
             <Container>
               {/*<!-- 2. Main Intro Start -->*/}
               <section>
@@ -204,259 +280,15 @@ So, with all the above in mind, all that’s left to do, is choose the perfect C
 
 
               {/*<!-- 4. Models Models Section Start -->*/}
-    <section>
+    <section id="our_models">
         <div className="container spacer-top spacer-bot">
             <div className="mod-head">
                 <h1>Our Models</h1>
             </div>
-            {/*<!--1 set Start  -->*/}
-            <div className="row m-top">
-                {/*<!-- Product 1 Start -->*/}
-                <div className="col-md-6 col-sm-12">
-                    <div className="col-12 ">
-                        <div className="row no-gutters mb-2">
-                            <div className="col- prod-head">
-                                <h2 className="pr-1">Si</h2>
-                            </div>
-                            <div className="col-7 prod-ban-h">
-                                <h2 className="pl-5">2 Series</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-5 prod-img">
-                            <span>
-                          <img src="assets/graphics/homePage/prod-001.jpg" alt="" className="img-fluid" />
-                        </span>
-                        </div>
-                        <div className="col-7 pl-0">
-                            <div className="row no-gutters">
-                                <div className="col-12 prod-des">
-                                    <p>Lorem ipsum <b>2 Series</b> <b>SI</b> adipisicing elit. Dolores doloribus fugit laudantium facilis aperiam sint temporibus dolore dicta ad ea labore, dolorem et dolor laborum ut minima asperiores nesciunt enim. </p>
-                                </div>
-                            </div>
-                            <div className="row no-gutters prod-spec mt-3">
-                                <div className="col-12 spec-titles">
-                                    <h6><b> Specification :</b> </h6>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Size</p>
-                                    </div>
-                                    <div className="col-lg-6  col-md-7 col-12 pl-0 pr-0 sub-descript">
-                                        <p>2000 x 1350 x 900mm</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Massage Pump</p>
-                                    </div>
-                                    <div className="col-lg-6 col-12 col-md-7 pl-0 pr-0 sub-descript">
-                                        <p>1 x 3 HP(2 speed) Pump</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-7 col-12 pl-0 sub-title">
-                                        <p>Total Number of Jets</p>
-                                    </div>
-                                    <div className="col-lg-2  col-md-3 col-12 pl-0 sub-descript">
-                                        <p>40</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row no-gutters more-det">
-                                <div className="col"><a href="singleProd.html">  See More Details</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*<!-- Product 1 End -->*/}
-                {/*<!-- Product 2 Start -->*/}
-                <div className="col-md-6 col-sm-12">
-                    <div className="col-12 ">
-                        <div className="row no-gutters mb-2">
-                            <div className="col- prod-head">
-                                <h2 className="pr-1">Rush</h2>
-                            </div>
-                            <div className="col-7 prod-ban-h">
-                                <h2 className="pl-5">4 Series</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-5 prod-img">
-                            <span>
-                  <img src="assets/graphics/homePage/prod-002.jpg" alt="" className="img-fluid" />
-                </span>
-                        </div>
-                        <div className="col-7 pl-0">
-                            <div className="row no-gutters">
-                                <div className="col-12 prod-des">
-                                    <p>Lorem ipsum adipisicing elit. Dolores doloribus fugit laudantium facilis aperiam sint temporibus dolore dicta ad ea labore, dolorem et dolor laborum ut minima asperiores nesciunt enim. </p>
-                                </div>
-                            </div>
-                            <div className="row no-gutters prod-spec mt-3">
-                                <div className="col-12 spec-titles">
-                                    <h6><b> Specification :</b> </h6>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Size</p>
-                                    </div>
-                                    <div className="col-lg-6  col-md-7 col-12 pl-0 pr-0 sub-descript">
-                                        <p>2000 x 1350 x 900mm</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Massage Pump</p>
-                                    </div>
-                                    <div className="col-lg-6 col-12 col-md-7 pl-0 pr-0 sub-descript">
-                                        <p>1 x 3 HP(2 speed) Pump</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-7 col-12 pl-0 sub-title">
-                                        <p>Total Number of Jets</p>
-                                    </div>
-                                    <div className="col-lg-2  col-md-3 col-12 pl-0 sub-descript">
-                                        <p>40</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row no-gutters more-det">
-                                <div className="col"><a href="">  See More Details</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*<!-- Product 2 End -->*/}
+            <div className="products">
+              {this.renderProducts()}
             </div>
-            {/*<!--1 set End  -->*/}
-            {/*<!--2 set Start  -->*/}
-            <div className="row m-top">
-                {/*<!-- Product 3 Start -->*/}
-                <div className="col-md-6 col-sm-12">
-                    <div className="col-12 ">
-                        <div className="row no-gutters mb-2">
-                            <div className="col- prod-head">
-                                <h2 className="pr-1">Power</h2>
-                            </div>
-                            <div className="col-7 prod-ban-h">
-                                <h2 className="pl-5">5 Series</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-5 prod-img">
-                            <span>
-                              <img src="assets/graphics/homePage/prod-001.jpg" alt="" className="img-fluid" />
-                            </span>
-                        </div>
-                        <div className="col-7 pl-0">
-                            <div className="row no-gutters">
-                                <div className="col-12 prod-des">
-                                    <p>Lorem ipsum <b>2 Series</b> <b>SI</b> adipisicing elit. Dolores doloribus fugit laudantium facilis aperiam sint temporibus dolore dicta ad ea labore, dolorem et dolor laborum ut minima asperiores nesciunt enim. </p>
-                                </div>
-                            </div>
-                            <div className="row no-gutters prod-spec mt-3">
-                                <div className="col-12 spec-titles">
-                                    <h6><b> Specification :</b> </h6>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Size</p>
-                                    </div>
-                                    <div className="col-lg-6  col-md-7 col-12 pl-0 pr-0 sub-descript">
-                                        <p>2000 x 1350 x 900mm</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Massage Pump</p>
-                                    </div>
-                                    <div className="col-lg-6 col-12 col-md-7 pl-0 pr-0 sub-descript">
-                                        <p>1 x 3 HP(2 speed) Pump</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-7 col-12 pl-0 sub-title">
-                                        <p>Total Number of Jets</p>
-                                    </div>
-                                    <div className="col-lg-2  col-md-3 col-12 pl-0 sub-descript">
-                                        <p>40</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row no-gutters more-det">
-                                <div className="col"><a href="">  See More Details</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*<!-- Product 3 End -->*/}
-                {/*<!-- Product 4 Start -->*/}
-                <div className="col-md-6 col-sm-12">
-                    <div className="col-12 ">
-                        <div className="row no-gutters mb-2">
-                            <div className="col- prod-head">
-                                <h2 className="pr-1">Aspire</h2>
-                            </div>
-                            <div className="col-7 prod-ban-h">
-                                <h2 className="pl-5">6 Series</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-5 prod-img">
-                            <span>
-                      <img src="assets/graphics/homePage/prod-002.jpg" alt="" className="img-fluid" />
-                    </span>
-                        </div>
-                        <div className="col-7 pl-0">
-                            <div className="row no-gutters">
-                                <div className="col-12 prod-des">
-                                    <p>Lorem ipsum adipisicing elit. Dolores doloribus fugit laudantium facilis aperiam sint temporibus dolore dicta ad ea labore, dolorem et dolor laborum ut minima asperiores nesciunt enim. </p>
-                                </div>
-                            </div>
-                            <div className="row no-gutters prod-spec mt-3">
-                                <div className="col-12 spec-titles">
-                                    <h6><b> Specification :</b> </h6>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Size</p>
-                                    </div>
-                                    <div className="col-lg-6  col-md-7 col-12 pl-0 pr-0 sub-descript">
-                                        <p>2000 x 1350 x 900mm</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-5 col-12 pl-0 sub-title">
-                                        <p>Massage Pump</p>
-                                    </div>
-                                    <div className="col-lg-6 col-12 col-md-7 pl-0 pr-0 sub-descript">
-                                        <p>1 x 3 HP(2 speed) Pump</p>
-                                    </div>
-                                </div>
-                                <div className="row pl-3 w-100">
-                                    <div className="col-lg-6 col-md-7 col-12 pl-0 sub-title">
-                                        <p>Total Number of Jets</p>
-                                    </div>
-                                    <div className="col-lg-2  col-md-3 col-12 pl-0 sub-descript">
-                                        <p>40</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row no-gutters more-det">
-                                <div className="col"><a href="">  See More Details</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*<!-- Product 4 End -->*/}
-            </div>
-            {/*<!--2 set End  -->*/}
+
         </div>
     </section>
     {/*<!-- Models Models Section End -->*/}
@@ -472,7 +304,7 @@ So, with all the above in mind, all that’s left to do, is choose the perfect C
 
 
      {/*<!-- 6. Offers Section Start  -->*/}
-    <section>
+    <section id="what_we_offer">
         <div className="container spacer-top spacer-bot">
             <h1 className="off-head">What we offer</h1>
             <div className="row -top">
@@ -558,6 +390,17 @@ So, with all the above in mind, all that’s left to do, is choose the perfect C
     }
   }
 
+function mapStateToProps(state){
+    return {
+        pageData: state.products.arr
+    };
+};
+
+function loadData(store){
+    return store.dispatch(fetchProducts());
+}
+
 export default {
-  component: HomePage
+    loadData,
+    component: connect(mapStateToProps, { fetchProducts })(HomePage)
 };

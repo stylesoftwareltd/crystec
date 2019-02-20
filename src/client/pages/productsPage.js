@@ -19,7 +19,6 @@ class Products extends Component {
     }
 
     componentDidMount(){
-        console.log('im mounted');
         this.props.fetchProducts();
     }
 

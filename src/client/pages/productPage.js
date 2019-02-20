@@ -78,25 +78,9 @@ class ProductPage extends Component {
                                             </Col>
 
                                             <Col xs="12" sm="12" md={{ size:6, offset:1}} className="product-desc">
-                                            {/* <p>
+                                             <p>
                                                 { ReactHtmlParser(this.props.productData.base_data.description)}                                            
-                                            </p> */}
-                                                    <div className="prod-wrap1">
-                                                        <p>The Crystec <b>2 Series</b> <b>SI</b> is perfect 13Amp Plug &amp; Play.</p>
-                                                    </div>
-
-                                                    <div className="prod-wrap2">
-                                                        <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repudiandae repellendus ut eum debitis assumenda, placeat doloribus ea id qui fugiat officiis ipsa velit porro, illo quidem hic blanditiis nemo provident ex, ratione obcaecati aspernatur accusantium laborum! Debitis at id veritatis officiis pariatur. Laborum quidem ipsa iusto blanditiis, beatae excepturi!
-                                                        </p>
-                                                    </div>
-
-                                                    <div className="prod-wrap3">
-                                                        <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repudiandae repellendus ut eum debitis assumenda, placeat doloribus ea id qui fugiat officiis ipsa velit porro, illo quidem hic blanditiis nemo provident ex, ratione obcaecati aspernatur accusantium laborum! Debitis at id veritatis officiis pariatur. Laborum quidem ipsa iusto blanditiis, beatae excepturi!
-                                                        </p>
-                                                    </div>
-
+                                            </p> 
                                             </Col>
 
                                         </Row>
@@ -172,7 +156,6 @@ class ProductPage extends Component {
                                                  
                             {/* className="p-0 d-flex flex-wrap" */}
                            
-                            <Container>
                             
                                 <div className="main column gallery-cont">
 
@@ -189,7 +172,50 @@ class ProductPage extends Component {
                                             <ProductSlider photos={this.props.productData.image_names} />   
                                         </div>
                                 </div>
-                            </Container>
+                                {/*<div className="conainer-fluid nav-bgcolor pSpacer-bot">
+                                    <div className="container gallery-sec-h pb-2">
+                                        <h1>Gallery</h1>
+                                    </div>
+                                    <container-fluid className="p-0 d-flex flex-wrap">
+                                        <Row>
+                                            <Col xs="6"  className="p-0">
+                                                <Row >
+                                                    <Col xs="6" className="p-0">
+                                                        <Col xs="12" className="p-0">
+                                                            <a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-01.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-01.jpg" alt="" className="img-fluid" /></a>
+                                                        </Col>
+                                                        <Col xs="12" className="p-0">
+                                                            <Row>
+                                                                <Col xs="6" className="p-0"><a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-02.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-02.jpg" alt="" className="img-fluid" /></a></Col>
+                                                                <Col xs="6" className="p-0"><a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-lg-03.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-lg-03.jpg" alt="" className="img-fluid" /></a></Col>
+                                                            </Row>
+                                                        </Col>
+                                                    </Col>
+                                                    <Col xs="6" className=" p-0">
+                                                        <Col className="p-0">
+                                                            
+                                                            <Col xs="12" className=" p-0"><a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-04.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-04.jpg" alt="" className="img-fluid" /></a></Col>
+                                                            <Col xs="12" className=" p-0"><a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-05.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-05.jpg" alt="" className="img-fluid" /></a></Col>
+                                                            
+                                                        </Col>
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+
+                                            <Col xs="6" className=" p-0">
+                                                <Row>
+                                                    <Col xs="8" className=" p-0"><a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-06.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-06.jpg" alt="" className="img-fluid" /></a></Col>
+                                                    <Col xs="4" className=" p-0">
+                                                        <Row>
+                                                            <Col xs="12" className=" p-0"><a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-07.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-07.jpg" alt="" className="img-fluid" /></a></Col>
+                                                            <Col xs="12" className=" p-0"><a className="" href="http://demo.hottubinstyle.co.uk/html/img/gallery-img-08.jpg" data-lightbox="gallery"><img src="http://demo.hottubinstyle.co.uk/html/img/gallery-img-08.jpg" alt="" className="img-fluid" /></a></Col>
+                                                        </Row>
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+                                        </Row>
+                                    </container-fluid>
+                                </div>*/}
 
                             
 
