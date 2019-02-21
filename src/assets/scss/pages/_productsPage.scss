@@ -7,10 +7,10 @@
     .product {
         position: relative;
         width: 50%;
-        height: auto;
+        height: 256px;
         float: left;
         padding: 0 20px;
-        margin: 0 0 4rem;
+        margin: 0 0 2rem;
         overflow: hidden;
 
         .wrap{
@@ -22,7 +22,7 @@
                 align-items: baseline;
 
                 .product-cat{
-                    margin-right: 20px;
+                    margin-right: 57px;
                     h2{
                         margin-bottom:0;
                         line-height: 4.1rem;
@@ -41,7 +41,7 @@
 
                     h2{
                         margin-bottom:0;
-                        line-height: 4.1rem;
+                        line-height: 2.5rem;
                         margin-left: 10px;
                         color: $white;
                         // font-size: 1.5rem;

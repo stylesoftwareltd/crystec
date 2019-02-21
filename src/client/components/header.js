@@ -66,7 +66,7 @@ class Header extends Component {
                                     <AnchorLink className="nav-link" href="#our_models">Products</AnchorLink>
                                 </li>
                                 <li className="nav-item">
-                                    <AnchorLink className="nav-link" href="#what_we_offer">What We Offer</AnchorLink>
+                                    <AnchorLink className="nav-link" href="/#what_we_offer">What We Offer</AnchorLink>
                                 </li>
                                 {/*<li className="nav-item">
                                     <a className="nav-link disabled" href="#">Video Gallery</a>

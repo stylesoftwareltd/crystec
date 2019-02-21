@@ -1,4 +1,4 @@
 {
-    "siteURL": "https://crystecspas.herokuapp.com",
+    "siteURL": "https://stg.uk.crystecspas.com",
     "axiosInstance_baseURL": "https://api.graphcms.com"
 }

@@ -100,8 +100,6 @@ class HomePage extends Component {
                                 </div>
                             </div>
 
-                            <div className="product-title"><a href= {`${webConfig.siteURL}/products/${post.info.uri_slug}`} > {post.info.name} </a></div>
-
                             <div className="products-wrapper">
 
                                     <div className="img column_4_12">
