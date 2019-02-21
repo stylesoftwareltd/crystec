@@ -118,9 +118,9 @@ class HomePage extends Component {
                                                 </div>
 
                                                 <div className="products-specification">
-                                                  { post.product_specs.map((data, index) => {
+                                                  { post.product_specs.map((data, i) => {
                                                         return (
-                                                          <div className="description-row">
+                                                          <div key={i}  className="description-row">
                                                               <div className="spec-title column_5_12">
                                                                   <p>{data.attr_value_name}</p>
                                                               </div>
