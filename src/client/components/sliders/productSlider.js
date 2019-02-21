@@ -51,7 +51,7 @@ class productSlider extends Component {
             {/*<Gallery photos={this.props.photos} onClick={this.openLightbox} margin={0} columns={4} direction='column'/>*/}
 
             <div className="conainer-fluid nav-bgcolor pSpacer-bot">
-                <div class="container gallery-sec-h pb-2">
+                <div className="container gallery-sec-h pb-2">
                     <h1>Gallery</h1>
                 </div>
                 <container-fluid className="p-0 d-flex flex-wrap">

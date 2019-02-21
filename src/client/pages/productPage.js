@@ -33,7 +33,7 @@ class ProductPage extends Component {
 
     head(){
         return (
-            <Helmet bodyAttributes={{class: "aboutPage"}}>
+            <Helmet>
               <title>{`Product page`}</title>
             </Helmet>
         );
@@ -44,7 +44,7 @@ class ProductPage extends Component {
         if(!this.props.productData.base_data == false){
             return(
                 <div>
-                    <Helmet bodyAttributes={{class: "produtPage"}}>
+                    <Helmet>
                         <title>{`${this.props.productData.base_data.name}`}</title>
                         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed" rel="stylesheet"></link>
                     </Helmet>
@@ -78,9 +78,9 @@ class ProductPage extends Component {
                                             </Col>
 
                                             <Col xs="12" sm="12" md={{ size:6, offset:1}} className="product-desc">
-                                             <p>
+                                             <div>
                                                 { ReactHtmlParser(this.props.productData.base_data.description)}                                            
-                                            </p> 
+                                            </div> 
                                             </Col>
 
                                         </Row>
@@ -189,9 +189,9 @@ class ProductPage extends Component {
                                                     </Col>
                                                     <Col xs={{ size: 12, offset: 0 }} md={{ size: 8, offset: 0 }}>
                                                         <h2 className="feat-sub-hd">{item.feature_title}</h2>
-                                                        <p className="feat-sub-cont">
+                                                        <div className="feat-sub-cont">
                                                             { ReactHtmlParser(item.feature_description) }
-                                                        </p>
+                                                        </div>
                                                     </Col>
                                                 </Row>
 
@@ -219,7 +219,7 @@ class ProductPage extends Component {
         if(this.props.productData == null){
             return (
                 <div>
-                    <Helmet bodyAttributes={{class: "postPage"}}>
+                    <Helmet>
                         <title>{`React Starter Kit`}</title>
                     </Helmet>
                     <InternalTextBanner Heading="" wrapperClass="post" />
@@ -241,7 +241,7 @@ class ProductPage extends Component {
         if(this.props.productData == false){
             return (
                 <div>
-                    <Helmet bodyAttributes={{class: "postPage"}}>
+                    <Helmet>
                         <title>{`404 not found - React Starter Kit`}</title>
                     </Helmet>
                     <InternalTextBanner Heading="404 not found" wrapperClass="post" />
