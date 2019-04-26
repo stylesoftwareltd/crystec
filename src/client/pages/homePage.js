@@ -82,7 +82,70 @@ class HomePage extends Component {
 
     renderProducts(){
         if(this.props.pageData != false){
-        
+        return this.props.pageData.map((post, index) => {
+
+            const toShow = (post.info.description.length > 0 ) ? post.info.description.substring(0,200)+"..." : '';
+
+            return (
+                    <div key={index} className="product">
+                        <div className="wrap">
+
+                            <div className="wrp-title">
+                                <div className="product-cat column_1_12">
+                                    <h2>{post.group_name}</h2>
+                                </div>
+
+                                <div className="product-series column_10_12">
+                                   <h2>{ post.name }</h2>
+                                </div>
+                            </div>
+
+                            <div className="products-wrapper">
+
+                                    <div className="img column_4_12">
+                                        <img  src={`https://stg.uk.hottubinstyle.co.uk/media/images/product/${post.info.file}`}  className="products-image"/>
+                                    </div>
+                                    
+                                    <div className="products-details column_8_12">
+
+                                        <div className="products-description">
+                                            { ReactHtmlParser(toShow) }
+                                        </div>
+                                        
+                                        <div className="products-specs">
+                                                <div className="spec-head">
+                                                        <h5>Specification</h5>
+                                                </div>
+
+                                                <div className="products-specification">
+                                                  { post.product_specs.map((data, i) => {
+                                                        return (
+                                                          <div key={i}  className="description-row">
+                                                              <div className="spec-title column_5_12">
+                                                                  <p>{data.attr_value_name}</p>
+                                                              </div>
+                                                              <div className="spec-desc column_6_12">
+                                                                  <p>{data.product_attr_value}</p>
+                                                              </div>    
+                                                          </div>
+                                                        );
+                                                    })
+                                                  }
+                                                </div>
+                                        </div>
+
+                                        <div className="products-more">
+                                            <div>
+                                                <a href={`${webConfig.siteURL}/products/${post.info.uri_slug}`}>See More Details</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+            );
+        })
         }
     }
     
