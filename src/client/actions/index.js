@@ -1,4 +1,5 @@
 import {landingPageAPI} from './../endpoints';
+import webConfig from './../../../webConfig';
 
 export const fetchPost = (postID) => async (dispatch, getState, api) => {
 
@@ -56,7 +57,7 @@ export const fetchProduct = (productID) => async (dispatch, getState, api) => {
         product_id: productID
     };
 
-    await api.post("https://stg.uk.hottubinstyle.co.uk/api/products/get_product_details", _query).then(response => {
+    await api.post( webConfig.backend + "/api/products/get_product_details", _query).then(response => {
         dispatch({
             type: 'FETCH_PRODUCT',
             payload: response.data
@@ -70,7 +71,7 @@ export const fetchProduct = (productID) => async (dispatch, getState, api) => {
 
 export const fetchProducts = () => async (dispatch, getState, api) => {
     
-    await api.get("https://stg.uk.hottubinstyle.co.uk/api/products").then(response => {
+    await api.get( webConfig.backend + "/api/products").then(response => {
         dispatch({
             type: 'FETCH_PRODUCTS',
             payload: response.data

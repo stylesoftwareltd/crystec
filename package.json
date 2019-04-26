@@ -55,6 +55,7 @@
     "react-slick": "^0.22.2",
     "reactstrap": "^7.1.0",
     "redux": "3.7.2",
+    "redux-devtools-extension": "^2.13.8",
     "redux-form": "^7.3.0",
     "redux-thunk": "2.2.0",
     "serialize-javascript": "1.4.0",
