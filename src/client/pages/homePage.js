@@ -96,7 +96,7 @@ class HomePage extends Component {
                                 </div>
 
                                 <div className="product-series column_10_12">
-                                   <h2>{post.name}</h2>
+                                   <h2>{ post.name }</h2>
                                 </div>
                             </div>
 
