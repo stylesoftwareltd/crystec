@@ -1,5 +1,5 @@
 {
-    "siteURL": "https://crystecspas.herokuapp.com",
+    "siteURL": "https://stg.uk.crystecspas.com",
     "axiosInstance_baseURL": "https://api.graphcms.com",
     "backend" : "https://stg.uk.hottubinstyle.co.uk"
 }
